@@ -3,7 +3,8 @@ import { Employee } from "../models/Employee";
 import { SalaryRecord } from "../models/SalaryRecord";
 import { LeaveRecord } from "../models/LeaveRecord";
 import archiver from "archiver";
-import puppeteer from "puppeteer";
+import puppeteer from "puppeteer-core";
+import chromium from "@sparticuz/chromium";
 import PDFDocument from "pdfkit";
 
 const router = Router();
@@ -149,9 +150,12 @@ const bulkDownloadSlips: RequestHandler = async (req, res) => {
     archive.pipe(res);
 
     // Launch browser once for all employees (HUGE speed improvement)
+    // Use chromium for serverless/cloud deployment compatibility
     browser = await puppeteer.launch({ 
-      headless: true, 
-      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'] 
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
     });
 
     let processed = 0, skipped = 0;

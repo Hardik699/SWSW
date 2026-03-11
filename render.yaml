@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: infoseum-hrms
+    env: node
+    buildCommand: pnpm install && pnpm build
+    startCommand: pnpm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18
