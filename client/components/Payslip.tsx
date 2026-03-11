@@ -172,9 +172,9 @@ export function Payslip({ data }: { data: PayslipData }) {
           <thead>
             <tr>
               <th className="border border-gray-700" style={{...headerCenteringStyle, width: '20%'}}>Leave Type</th>
-              <th className="border border-gray-700" style={{...headerCenteringStyle, width: '20%'}}>Total Leave</th>
-              <th className="border border-gray-700" style={{...headerCenteringStyle, width: '20%'}}>Availed</th>
-              <th className="border border-gray-700" style={{...headerCenteringStyle, width: '20%'}}>Subsisting</th>
+              <th className="border border-gray-700" style={{...headerCenteringStyle, width: '20%'}}>Total Leave In The Account</th>
+              <th className="border border-gray-700" style={{...headerCenteringStyle, width: '20%'}}>Leave Availed</th>
+              <th className="border border-gray-700" style={{...headerCenteringStyle, width: '20%'}}>Subsisting Leave</th>
               <th className="border border-gray-700" style={{...headerCenteringStyle, width: '20%'}}>LWP</th>
             </tr>
           </thead>

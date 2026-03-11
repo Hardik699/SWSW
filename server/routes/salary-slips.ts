@@ -98,7 +98,7 @@ h2 { font-size: 12px; font-weight: 800; color: #1e40af; margin: 10px 0 5px; bord
 
 <h2>Leave Details</h2>
 <table>
-<tr><th>Leave Type</th><th>Total Leave</th><th>Availed</th><th>Subsisting</th><th>LWP</th></tr>
+<tr><th>Leave Type</th><th>Total Leave In The Account</th><th>Leave Availed</th><th>Subsisting Leave</th><th>LWP</th></tr>
 ${leaves.map(l => `<tr><td class="label">${l.type}</td><td>${l.total.toFixed(1)}</td><td style="color: ${l.availed > 0 ? '#dc2626' : '#000'};">${l.availed.toFixed(1)}</td><td>${l.subsisting.toFixed(1)}</td><td>${l.lwp.toFixed(1)}</td></tr>`).join('')}
 <tr class="total-row"><td class="label">Total Leaves Taken</td><td>${totalLeavesTaken.toFixed(1)}</td><td colspan="2" class="label" style="text-align: center;">Total Leave Without Pay</td><td>${totalLwp.toFixed(1)}</td></tr>
 <tr class="total-row"><td class="label">Total Present Days</td><td>${(salaryRecord.actualWorkingDays || 0).toFixed(1)}</td><td colspan="2" class="label" style="text-align: center;">Total Days Payable</td><td>${(salaryRecord.actualWorkingDays || 0).toFixed(1)}</td></tr>
