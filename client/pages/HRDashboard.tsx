@@ -3401,7 +3401,7 @@ Generated on: ${new Date().toLocaleString()}
                         ? `${salaryUploadData.length} records parsed`
                         : "Click to upload salary details Excel"}
                     </p>
-                    <div className="flex justify-center">
+                    <div className="flex justify-center gap-3">
                       <div className="relative">
                         <input
                           type="file"
@@ -3418,6 +3418,73 @@ Generated on: ${new Date().toLocaleString()}
                           {isUploadingSalary ? "Processing..." : "Choose File"}
                         </Button>
                       </div>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        onClick={() => {
+                          // Create sample salary format Excel
+                          const sampleData = [
+                            {
+                              "ID": "EMP-001",
+                              "S No": "1",
+                              "Name": "Sample Employee",
+                              "UAN Number": "123456789012",
+                              "ESIC IP Numbers": "1234567890",
+                              "Company": "Company Name",
+                              "Department": "IT",
+                              "Status": "Active",
+                              "CTC": "500000",
+                              "Employer PF": "1800",
+                              "Employer ESIC": "750",
+                              "Aadhar Card": "1234 5678 9012",
+                              "DOJ": "2024-01-01",
+                              "A/C No.": "12345678901234",
+                              "IFSC Code": "SBIN0001234",
+                              "Actual Gross": "41667",
+                              "Actual Basic": "20000",
+                              "Actual HRA": "10000",
+                              "Actual Conveyance": "1600",
+                              "Actual Spl Allowance": "10067",
+                              "Actual Payable Gross": "41667",
+                              "Total Days": "30",
+                              "Days Worked": "30",
+                              "Earned Basic": "20000",
+                              "Earned HRA": "10000",
+                              "Earned Conveyance": "1600",
+                              "Earned Spl Allowance": "10067",
+                              "Earned GROSS": "41667",
+                              "Payable PF Info": "1800",
+                              "PF": "1800",
+                              "ESIC": "750",
+                              "ESIC info": "750",
+                              "PT": "200",
+                              "Retention": "0",
+                              "Deduction": "0",
+                              "Advance": "0",
+                              "Any": "0",
+                              "Total Deduction": "2750",
+                              "Net Salary": "38917",
+                              "Incentive1": "0",
+                              "Incentive2": "0",
+                              "Final Salary": "38917",
+                              "Bonus": "0",
+                              "Gratuity": "0",
+                              "Adjustment": "0",
+                              "TDS": "0",
+                              "Salary Paid": "38917"
+                            }
+                          ];
+                          const ws = XLSX.utils.json_to_sheet(sampleData);
+                          const wb = XLSX.utils.book_new();
+                          XLSX.utils.book_append_sheet(wb, ws, "Salary Format");
+                          XLSX.writeFile(wb, "Salary_Details_Format.xlsx");
+                          toast.success("Format sheet downloaded!");
+                        }}
+                        className="border-green-500/50 text-green-400 hover:bg-green-500/10"
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Download Format
+                      </Button>
                     </div>
                     {salaryUploadData.length > 0 && (
                       <Button
@@ -3471,7 +3538,7 @@ Generated on: ${new Date().toLocaleString()}
                         ? `${leaveUploadData.length} records parsed`
                         : "Click to upload leave details Excel"}
                     </p>
-                    <div className="flex justify-center">
+                    <div className="flex justify-center gap-3">
                       <div className="relative">
                         <input
                           type="file"
@@ -3488,6 +3555,44 @@ Generated on: ${new Date().toLocaleString()}
                           {isUploadingLeave ? "Processing..." : "Choose File"}
                         </Button>
                       </div>
+                      <Button
+                        type="button"
+                        variant="outline"
+                        onClick={() => {
+                          // Create sample leave format Excel
+                          const sampleData = [
+                            {
+                              "ID": "EMP-001",
+                              "S.No.": "1",
+                              "Name": "Sample Employee",
+                              "DOJ": "2024-01-01",
+                              "DOC": "",
+                              "DOL": "",
+                              "PL TOTAL LEAVE TAKEN": "1.0",
+                              "CL TOTAL LEAVE TAKEN": "0.5",
+                              "SL TOTAL LEAVE TAKEN": "0.0",
+                              "PL LEAVE BALANCE": "6.0",
+                              "CL LEAVE BALANCE": "2.5",
+                              "SL LEAVE BALANCE": "5.0",
+                              "PL Total Leave In The Account": "7.0",
+                              "CL Total Leave In The Account": "3.0",
+                              "SL Total Leave In The Account": "5.0",
+                              "PL LWP": "0.0",
+                              "CL LWP": "0.0",
+                              "SL LWP": "0.0"
+                            }
+                          ];
+                          const ws = XLSX.utils.json_to_sheet(sampleData);
+                          const wb = XLSX.utils.book_new();
+                          XLSX.utils.book_append_sheet(wb, ws, "Leave Format");
+                          XLSX.writeFile(wb, "Leave_Details_Format.xlsx");
+                          toast.success("Format sheet downloaded!");
+                        }}
+                        className="border-green-500/50 text-green-400 hover:bg-green-500/10"
+                      >
+                        <Download className="h-4 w-4 mr-2" />
+                        Download Format
+                      </Button>
                     </div>
                     {leaveUploadData.length > 0 && (
                       <Button

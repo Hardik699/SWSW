@@ -249,7 +249,7 @@ export default function PayslipPage() {
           { name: "ESIC", amount: esic },
           { name: "PT", amount: pt },
           { name: "TDS", amount: tds },
-          { name: employee.retentionType || "Retention", amount: retention },
+          { name: retention < 0 ? "Deduction" : "Retention", amount: retention },
           ...(advanceAnyDeduction > 0 ? [{ name: "Advance Deduction", amount: advanceAnyDeduction }] : []),
         ],
         grossEarnings: totalEarningsActual,
